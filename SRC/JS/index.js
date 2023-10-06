@@ -1,25 +1,24 @@
-const botoes = document.querySelectorAll(".botao");
+const buttons = document.querySelectorAll(".botao");
+const characters = document.querySelectorAll(".personagem");
 
-const personagens = document.querySelectorAll(".personagem");
+buttons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    deselectButton();
+    deselectCharacter();
 
-botoes.forEach((botao, indice) => {
-  botao.addEventListener("click", () => {
-    desselecionarBotao();
-    desselecionarPersonagem();
+    button.classList.add("selecionado");
 
-    botao.classList.add("selecionado");
-
-    personagens[indice].classList.add("selecionado");
+    characters[index].classList.add("selecionado");
   });
 });
-function desselecionarPersonagem() {
-  const personagemSelecionado = document.querySelector(
+function deselectCharacter() {
+  const characterSelected = document.querySelector(
     ".personagem.selecionado"
   );
-  personagemSelecionado.classList.remove("selecionado");
+  characterSelected.classList.remove("selecionado");
 }
 
-function desselecionarBotao() {
-  const botaoSelecionado = document.querySelector(".botao.selecionado");
-  botaoSelecionado.classList.remove("selecionado");
+function deselectButton() {
+  const buttonSelected = document.querySelector(".botao.selecionado");
+  buttonSelected.classList.remove("selecionado");
 }
